@@ -22,9 +22,6 @@ public class BoredApplication {
 		//Check search type
 
 
-		menu.typeSearch();
-
-
 
 
 

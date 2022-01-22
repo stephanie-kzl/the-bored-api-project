@@ -2,10 +2,11 @@ package Model;
 
 public class Activity {
 
-    private String activity;
+    private String activity; //name of activity
     private String type;
     private int participants;
     private double price;
+    private double accessibility;
 
     @Override
     public String toString() {
@@ -47,5 +48,13 @@ public class Activity {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public double getAccessibility() {
+        return accessibility;
+    }
+
+    public void setAccessibility(double accessibility) {
+        this.accessibility = accessibility;
     }
 }

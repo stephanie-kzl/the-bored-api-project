@@ -18,16 +18,16 @@ public class Controller {
             menu.participantsSearch();
         } else if (mainMenuInput == 3 ) {
             //search by price
-
+            menu.exactPriceSearch();
         } else if (mainMenuInput == 4 ) {
             //search by price RANGE
-
+            menu.priceRangeSearch();
         } else if (mainMenuInput == 5 ) {
             //search by accessibility
-
+            menu.accessibilitySearch();
         } else if (mainMenuInput == 6 ) {
             //search by accessibility RANGE
-
+            menu.accessibilityRangeSearch();
         }
 
 

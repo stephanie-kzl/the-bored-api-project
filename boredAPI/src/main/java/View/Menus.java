@@ -1,5 +1,7 @@
 package View;
 
+import Model.Activity;
+
 import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -9,15 +11,16 @@ public class Menus {
     Scanner input = new Scanner(System.in);
 
 
-    public int mainMenu () {
+    public int mainMenu() {
         System.out.println("WELCOME!\n");
-        System.out.println("How would you like to search?");
-        System.out.println("1. By Activity Type \n" +
-                "2. By Number of Participants\n" +
-                "3. By Activity Price\n" +
-                "4. By Activity Price Range\n" +
-                "5. By Accessibility\n" +
-                "5. By Accessibility Range");
+        System.out.println("What would you like to do?");
+        System.out.println("1. Search by Activity Type \n" +
+                "2. Search by Number of Participants\n" +
+                "3. Search by Activity Price\n" +
+                "4. Search by Activity Price Range\n" +
+                "5. Search by Accessibility\n" +
+                "5. Search by Accessibility Range\n" +
+                "6. Add a new Activity");
         System.out.println("Enter the number of your selection:");
 
         String menuSelectionString = input.nextLine();
@@ -29,19 +32,19 @@ public class Menus {
 
     public String typeSearch() {
 
-        String[] activityTypes = new String[] {"educational", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"};
+        String[] activityTypes = new String[]{"educational", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"};
 
         System.out.println("Try searching by the one of the following activity types: \n" +
                 Arrays.toString(activityTypes));
 
         String typeSelection = input.nextLine();
-       //TODO: verify input
+        //TODO: verify input
 
         return typeSelection;
     }
 
 
-    public int participantsSearch () {
+    public int participantsSearch() {
         System.out.println("How many people are bored?");
 
         String peopleString = input.nextLine();
@@ -51,7 +54,7 @@ public class Menus {
     }
 
 
-    public double exactPriceSearch () {
+    public double exactPriceSearch() {
         System.out.println("How much do you want to spend?");
 
         String priceString = input.nextLine();
@@ -61,8 +64,7 @@ public class Menus {
     }
 
 
-
-    public double priceRangeSearch () {
+    public double priceRangeSearch() {
 
         System.out.println("Enter the lower end of your price range: ");
         String minPriceString = input.nextLine();
@@ -77,15 +79,77 @@ public class Menus {
     }
 
 
-    public double accessibilitySearch () {
+    public double accessibilitySearch() {
         System.out.println("Accessibility can be searched on a scale of 0.0 to 1.0 \n" +
                 "with 0.0 being the most accessible.");
-        return 0;
+        System.out.println("Please enter your accessibility search number: ");
+        String accessibilitySearch = input.nextLine();
+        double accessibility = Double.parseDouble(accessibilitySearch);
+
+        return accessibility;
     }
 
 
+    public double accessibilityRangeSearch() {
+        System.out.println("Accessibility can be searched on a scale of 0.0 to 1.0 \n" +
+                "with 0.0 being the most accessible.");
 
+        System.out.println("Please enter the lower end of your search: ");
+        String minAccessString = input.nextLine();
+        double minAccess = Double.parseDouble(minAccessString);
 
+        System.out.println("\nPlease enter the upper end of your search: ");
+        String maxAccessString = input.nextLine();
+        double maxAccess = Double.parseDouble(maxAccessString);
+
+        return 0;
+    }
+
+    public Activity addNewActivity() {
+
+        Activity activity = new Activity();
+
+        activity.setActivity(newName());
+        activity.setAccessibility(newAccessibility());
+        activity.setType(newCategory());
+        activity.setParticipants(newParticipants());
+        activity.setPrice(newPrice());
+
+        return activity;
+    }
+
+    public String newName() {
+        System.out.println("Please enter the name of your activity: ");
+        String name = input.nextLine();
+        return name;
+    }
+
+    public double newAccessibility() {
+        System.out.println("\nPlease enter the accessibility rating of your activity: ");
+        String accessibilityStr = input.nextLine();
+        double accessibility = Double.parseDouble(accessibilityStr);
+        return accessibility;
+    }
+
+    public String newCategory() {
+        System.out.println("\nPlease enter the category or type of your activity: ");
+        String type = input.nextLine();
+        return type;
+    }
+
+    public int newParticipants() {
+        System.out.println("\nPlease enter the number of participants required for your activity: ");
+        String participantsStr = input.nextLine();
+        int participants = Integer.parseInt(participantsStr);
+        return participants;
+    }
+
+    public double newPrice() {
+        System.out.println("\nPlease enter the price of your activity: ");
+        String priceStr = input.nextLine();
+        double price = Double.parseDouble(priceStr);
+        return price;
+    }
 
 
 }
