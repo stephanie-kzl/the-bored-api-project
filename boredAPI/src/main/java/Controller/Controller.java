@@ -4,9 +4,9 @@ import View.Menus;
 
 public class Controller {
 
-    Menus menu = new Menus();
+    private Menus menu = new Menus();
 
-    public int checkMainSelection() {
+    public void checkMainSelection() {
 
         int mainMenuInput = menu.mainMenu();
 
@@ -29,9 +29,9 @@ public class Controller {
             //search by accessibility RANGE
             menu.accessibilityRangeSearch();
         }
-
-
-
-        return 0;
     }
+
+
+
+
 }

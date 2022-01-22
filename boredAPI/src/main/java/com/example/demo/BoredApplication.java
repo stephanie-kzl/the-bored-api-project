@@ -1,11 +1,13 @@
 package com.example.demo;
 
+import Controller.Controller;
 import Model.Activity;
 import View.Menus;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.client.RestTemplate;
 
+import javax.print.attribute.standard.PrinterMoreInfoManufacturer;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -15,14 +17,22 @@ public class BoredApplication {
 		SpringApplication.run(BoredApplication.class, args);
 
 		Menus menu = new Menus();
-
-		//Call main menu
-		menu.mainMenu();
-
-		//Check search type
+		Controller controller = new Controller();
 
 
+		//menu.mainMenu();
+		controller.checkMainSelection();
 
+
+		/*
+		TODO:
+
+		1. call main menu
+
+		2. call selected method
+		 */
+
+		//TODO: make URL string and use it with each menu option
 
 
 

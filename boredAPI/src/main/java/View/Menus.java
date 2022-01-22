@@ -12,7 +12,7 @@ public class Menus {
 
 
     public int mainMenu() {
-        System.out.println("WELCOME!\n");
+        System.out.println("WELCOME!\nYou must be bored...");
         System.out.println("What would you like to do?");
         System.out.println("1. Search by Activity Type \n" +
                 "2. Search by Number of Participants\n" +
